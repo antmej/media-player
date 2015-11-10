@@ -6,7 +6,7 @@ function Movie(title, year, duration) { // parameters/arguments being passed in 
 
 Movie.prototype = Object.create(Media.prototype);
 
-Movie.prototype.toHTML = function() {
+Movie.prototype.toHTML = function () {
 	var htmlString = '<li';
 	if (this.isPlaying) {
 		htmlString += ' class="current"';

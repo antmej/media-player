@@ -1,53 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Treetunes</title>
+    <title>JS Media Player</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-
-    <div>
-        <h1>Treetunes</h1>
+    <div class='player'>
+        <h1>JS Media Player</h1>
+        <ul class='player-headings'>
+            <li>Track</li>
+            <li>Artist</li>
+            <li>Duration</li>
+            <li>Album</li>
+        </ul>
 
         <ol id="playlist">
 
         </ol>
 
-        <button id="play">Play</button>
-        <button id="next">Next</button>
-        <button id="stop">Stop</button>
+        <audio id='audio' src=''></audio>
 
+        <div class='btn-group'>
+            <button id="play"><i class="fa fa-play"></i></button>
+            <button id="next"><i class="fa fa-forward"></i></button>
+            <button id="stop"><i class="fa fa-stop"></i></button>
+        </div>
     </div>
-
-
-    <audio id='midnightAudio'>
-        <source src='audio/midnight-city.mp3' type='audio/mpeg'>
-    </audio>
-   <button onclick='boop();'>Play</button>
-   <button onclick='boop2();'>Stop</button>
-    
-    <script>
-        function boop() {
-            var audio = document.getElementById('midnightAudio');
-            audio.src='audio/midnight-city.mp3'; // because the source is removed in boop2(), in order to play it again you have to add it back in 
-            audio.play();
-        }
-
-        function boop2() {
-            var audio = document.getElementById('midnightAudio');
-            audio.pause();
-            audio.src = ''; // removing the source is a trick to stop the audio instead of just pausing it
-        }
-    </script>
 
     <script src="playlist.js"></script>
     <script src='media.js'></script> 
     <script src="song.js"></script>
     <script src='movie.js'></script>
     <script src="app.js"></script>
-    <!-- <script src="test.js"></script> -->
-
 </body>
-
 </html>

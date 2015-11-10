@@ -12,17 +12,25 @@ Playlist.prototype.add = function(song) {
 Playlist.prototype.play = function() {
 	var currentSong = this.songs[this.nowPlayingIndex]; 
 	// song object at index whatever is added to currentSong variable
+	
 	currentSong.play(); 
-	// once object at whatever index is added to currentSong variable, the play() method on that object can be accessed
+	// highlights the current song playing
+
+	currentSong.audioPlay();
+	// add src and audio path to <audio> tag and play audio
 };
 
 Playlist.prototype.stop = function(){
 	var currentSong = this.songs[this.nowPlayingIndex]; 
-	currentSong.stop();
+	
+	currentSong.stop(); // removes highlight
+
+	currentSong.audioStop();
+	// removes src from audio <audio> tag and stop audio
 };
 
 Playlist.prototype.next = function() {
-	playlist.stop(); // stop the current song
+	playlist.stop(); // stop the current song using existing stop method on playlist object
 	this.nowPlayingIndex += 1; // move to next song in songs array
 	
 	if (this.nowPlayingIndex === this.songs.length) {
@@ -30,7 +38,7 @@ Playlist.prototype.next = function() {
 		// if nowPlayingIndex is the same length as the songs array start back at the beginning of the songs array
 	}
 
-	playlist.play(); // play the next song in the songs array
+	playlist.play(); // play the next song in the songs array using existing play method on playlist object
 };
 
 Playlist.prototype.renderInElement = function(playlistElement) {

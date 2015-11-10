@@ -8,10 +8,10 @@ function Media(title, duration) {
 	this.isPlaying = false;
 }
 
-Media.prototype.play = function() {
+Media.prototype.play = function () {
 	this.isPlaying = true;
 };
 
-Media.prototype.stop = function() {
+Media.prototype.stop = function () {
 	this.isPlaying = false;
 };
