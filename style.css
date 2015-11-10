@@ -1,60 +1,98 @@
+
 @import url(http://fonts.googleapis.com/css?family=Varela+Round);
 @import url(http://necolas.github.io/normalize.css/3.0.2/normalize.css);
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: #ECEEEF;
-    text-align: center;
-    margin: 100px auto;
-    width: 80%;
+    margin: 0 auto;
+    width: 90%;
     padding: 0 40px;
     font: 14px normal 'Varela Round', Helvetica, serif;
 }
 
 h1 {
     font-size: 20px;
-    color:white;
+    color: #4BB3FD;
+    text-align: center;
 }
 
-div {
-    background: #c25975;
+.player {
+    background: #00487C;
     border-radius: 4px;
     border: 1px solid #D5DDE4;
-    margin: -40px 0 0;
 }
 
-ol {
+.player-headings {
+    background-color: white;
+    list-style: none;
+    padding: 15px 15px;
+    margin: 0;
+    width: 100%;
+}
+
+.player-headings li {
+    display: inline-block;
+    width: 24.3%;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+    border-top: none;
+}
+
+.player-headings li:nth-of-type(2) {
+    padding-left: 12px;
+}
+
+.player-headings li:nth-of-type(3) {
+    padding-left: 20px;
+}
+
+.player-headings li:nth-of-type(4) {
+    padding-left: 38px;
+}
+
+#playlist {
     list-style-type: none;
     padding: 0;
-    background:white;
-    margin: 0 0;
+    background: #fff;
+    margin: 0;
     width: 100%;
-    display: inline-block;
-
 }
 
-li {
+#playlist li {
+    display: inline-block;
     color: #2C3238;
-    width: 96%;
-    padding: 15px 2%;
+    padding: 15px;
+    width: 25%;
     margin: 0;
     text-align: left;
     border-top: 1px solid #D5DDE4;
 }
 
-li span {
-    float: right;
+#playlist li span {
+    /*float: right;*/
     color: #777B7E;
+    padding-left: 8%;
 }
 
-li.current {
-    background: #ffd7d8;
+#playlist li.current {
+    background: #FFB342;
+}
+
+.btn-group {
+    text-align: center;
 }
 
 button {
-    margin:10px;
-    padding:10px 35px;
+    color: #00487C;
+    margin: 10px;
+    padding: 7px 25px;
     border: none;
     border-radius: 5px;
-    background: white;
+    background: #4BB3FD;
     
 }
