@@ -18,6 +18,9 @@ Playlist.prototype.play = function() {
 
 	currentSong.audioPlay();
 	// add src and audio path to <audio> tag and play audio
+
+	currentSong.nowPlaying();
+	// updates nowplaying info
 };
 
 Playlist.prototype.stop = function(){
@@ -51,75 +54,3 @@ Playlist.prototype.renderInElement = function(playlistElement) {
 	}
 };
 
-
-
-
-
-
-/*
-
-var playlist = {
-	songs: [],
-	nowPlayingIndex: 0,
-	add: function(song) {
-		this.songs.push(song);
-	},
-	play: function() {
-		var currentSong = this.song[this.nowPlayingIndex];
-		currentSong.play();
-	},
-	stop: function() {
-		var currentSong = this.song[this.nowPlayingIndex];
-		currentSong.stop();
-	},
-	next: function() {
-		this.stop();
-		this.nowPlayingIndex += 1;
-
-		if(this.nowPlayingIndex === this.songs.length) {
-			this.nowPlayingIndex = 0;
-		}
-		this.play();
-	},
-	renderIn: function() {
-		playlistElement.innerHTML = "";
-		for(var i = 0; i < this.songs.length; i+= 1) {
-			playlistElement.innerHTML += this.songs[i].toHTML(); 
-		}
-	}
-}
-
-*/
-
-/* 
-
-songs = [
-	var feedback = {
-		title: "Feedback",
-		artist: "Janet Jackson",
-		duration: "3:38",
-		isPlaying: false,
-		play: function () {
-			this.isPlaying = true;
-		},
-		stop: function () {
-			this.isPlaying = false;
-		},
-		toHTML: function() {
-			var htmlString = '<li';
-			if(this.isPlaying) {
-				htmlString += ' class="current"';
-			}
-			htmlString += '>';
-			htmlString += this.title;
-			htmlString += ' - ';
-			htmlString += this.artist;
-			htmlString += '<span class="duration">';
-			htmlString += this.duration;
-			htmlString += '</span></li>';
-			return htmlString;
-		}
-	}
-];
-
-*/
