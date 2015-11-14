@@ -1,3 +1,4 @@
+'use strict';
 
 function Song(title, artist, duration, album, path) { // parameters/arguments being passed in by line 3 in app.js
 	Media.call(this, title, duration); // Media object handles title and duration
@@ -46,22 +47,15 @@ Song.prototype.toHTML = function () {
 	album += '</li>'
 
 	return addToPlaylist = track + artist + duration + album;
+};
 
-
-	// var htmlString = '<li';
-	// if (this.isPlaying) { // if true had a class of "current" to 
-	// 	htmlString += ' class="current"';
-	// }
-	// htmlString += '>';
-	// htmlString += this.title;
-	// htmlString += ' - ';
-	// htmlString += this.artist;
-	// htmlString += '<span class="duration">';
-	// htmlString += this.duration;
-	// htmlString += '</span></li>';
-	// // console.log(htmlString);
-	// return htmlString;
-	// // <li class="current"> Midnight City - M83 <span class="duration"> 4:04 </span></li>
+Song.prototype.nowPlaying = function () {
+	var nowplaying = document.getElementById('nowplaying');
+	nowplaying.innerHTML = '';
+	nowplaying.innerHTML += '<span id="song-title">' + this.title + '</span>';
+	nowplaying.innerHTML += '<span id="song-artist">' + this.artist + ' -' + '</span>';
+	nowplaying.innerHTML += ' <span id="song-album">' + this.album + '</span>';
+	return nowplaying;
 };
 
 Song.prototype.audioPlay = function () {
