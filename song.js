@@ -49,14 +49,14 @@ Song.prototype.toHTML = function () {
 	return addToPlaylist = track + artist + duration + album;
 };
 
-// Song.prototype.nowPlaying = function () {
-// 	var nowplaying = document.getElementById('nowplaying');
-// 	nowplaying.innerHTML = '';
-// 	nowplaying.innerHTML += '<span id="song-title">' + this.title + '</span>';
-// 	nowplaying.innerHTML += '<span id="song-artist">' + this.artist + ' -' + '</span>';
-// 	nowplaying.innerHTML += ' <span id="song-album">' + this.album + '</span>';
-// 	return nowplaying;
-// };
+Song.prototype.nowPlaying = function () {
+	var nowplaying = document.getElementById('nowplaying');
+	nowplaying.innerHTML = '';
+	nowplaying.innerHTML += '<span id="song-title">' + this.title + '</span>';
+	nowplaying.innerHTML += '<span id="song-artist">' + this.artist + ' -' + '</span>';
+	nowplaying.innerHTML += ' <span id="song-album">' + this.album + '</span>';
+	return nowplaying;
+};
 
 Song.prototype.audioPlay = function () {
 	var audio = document.getElementById('audio');
