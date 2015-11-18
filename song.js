@@ -1,3 +1,4 @@
+
 'use strict';
 
 function Song(title, artist, duration, album, path) { // parameters/arguments being passed in by line 3 in app.js
@@ -11,52 +12,31 @@ Song.prototype = Object.create(Media.prototype);
 // copies the references to Media's prototype properties and methods to Song's prototype properties
 
 Song.prototype.toHTML = function () {
+
 	var track, artist, duration, album, addToPlaylist;
 
+	track = "<li>" + this.title + "</li>";
+	artist = "<li>" + this.artist + "</li>";
+	duration = "<li>" + this.duration + "</li>";
+	album = "<li>" + this.album + "</li>";
 
-	track = '<li';
-	if (this.isPlaying) { // if true had a class of "current" to 
-		track += ' class="current"';
-	}
-	track += '>'
-	track += this.title;
-	track += '</li>'
+	addToPlaylist = "<ul class='tracklist'>" + track + artist + duration + album + "</ul>";
+	
+	if (this.isPlaying) {
+		addToPlaylist = "<ul class='tracklist current'>" + track + artist + duration + album + "</ul>";
+	}; // adds current class to currently playing song
 
-	artist = '<li'
-	if (this.isPlaying) { // if true had a class of "current" to 
-		artist += ' class="current"';
-	}
-	artist += '>'
-	artist += this.artist;
-	artist += '</li>'
-
-	duration = '<li'
-	if (this.isPlaying) { // if true had a class of "current" to 
-		duration += ' class="current"';
-	}
-	duration += '>'
-	duration += this.duration;
-	duration += '</li>'
-
-	album = '<li'
-	if (this.isPlaying) { // if true had a class of "current" to 
-		album += ' class="current"';
-	}
-	album += '>'
-	album += this.album;
-	album += '</li>'
-
-	return addToPlaylist = track + artist + duration + album;
+	return addToPlaylist;
 };
 
-// Song.prototype.nowPlaying = function () {
-// 	var nowplaying = document.getElementById('nowplaying');
-// 	nowplaying.innerHTML = '';
-// 	nowplaying.innerHTML += '<span id="song-title">' + this.title + '</span>';
-// 	nowplaying.innerHTML += '<span id="song-artist">' + this.artist + ' -' + '</span>';
-// 	nowplaying.innerHTML += ' <span id="song-album">' + this.album + '</span>';
-// 	return nowplaying;
-// };
+Song.prototype.nowPlaying = function () {
+	var nowplaying = document.getElementById('nowplaying');
+	nowplaying.innerHTML = '';
+	nowplaying.innerHTML += '<span id="song-title">' + this.title + '</span>';
+	nowplaying.innerHTML += '<span id="song-artist">' + this.artist + ' -' + '</span>';
+	nowplaying.innerHTML += ' <span id="song-album">' + this.album + '</span>';
+	return nowplaying;
+};
 
 Song.prototype.audioPlay = function () {
 	var audio = document.getElementById('audio');

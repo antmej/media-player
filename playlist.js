@@ -46,11 +46,9 @@ Playlist.prototype.next = function() {
 
 Playlist.prototype.renderInElement = function(playlistElement) {
 	playlistElement.innerHTML = "";
-	for (var i = 0; i < this.songs.length; i+= 1) {
+	
+	for (var i = 0; i < this.songs.length; i += 1) {
 		playlistElement.innerHTML += this.songs[i].toHTML(); 
-		/* i have access to the toHTML() method on the object thats inside the songs array at index whatever. 
-		the toHTML() method creates the <li></li> that will be added to the  <ol id="playlist"></ol>
-		*/
 	}
 };
 

@@ -55,31 +55,25 @@ h1 {
     padding-left: 38px;
 }
 
-#playlist {
+.tracklist {
     list-style-type: none;
     padding: 0;
     background: #fff;
     margin: 0;
     width: 100%;
-}
-
-#playlist li {
-    display: inline-block;
-    color: #2C3238;
-    padding: 15px;
-    width: 25%;
-    margin: 0;
-    text-align: left;
     border-top: 1px solid #D5DDE4;
 }
 
-#playlist li span {
-    /*float: right;*/
-    color: #777B7E;
-    padding-left: 8%;
+.tracklist li {
+    display: inline-block;
+    color: #2C3238;
+    padding: 15px;
+    width: 24.75%;
+    margin: 0;
+    text-align: left;
 }
 
-#playlist li.current {
+.current {
     background: #FFB342;
 }
 
