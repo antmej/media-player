@@ -20,10 +20,10 @@ Song.prototype.toHTML = function () {
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
 
-	addToPlaylist = "<ul class='tracklist'>" + track + artist + duration + album + "</ul>";
+	addToPlaylist = "<ul class='tracklist'>" + "<i class='fa fa-play circle'></i>" + track + artist + duration + album + "</ul>";
 	
 	if (this.isPlaying) {
-		addToPlaylist = "<ul class='tracklist current'>" + track + artist + duration + album + "</ul>";
+		addToPlaylist = "<ul class='tracklist current'>" + "<i class='fa fa-stop circle'></i>" + track + artist + duration + album + "</ul>";
 	}; // adds current class to currently playing song
 
 	return addToPlaylist;

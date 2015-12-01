@@ -7,6 +7,14 @@ var allOfTheLights = new Song('All of the Lights', 'Kanye West', '5:00', 'My Bea
 var beautifulLasers = new Song('Beautiful Lasers', 'Lupe Fiasco', '4:02', 'Lasers', 'audio/beautiful-lasers.mp3');
 var feelSoClose = new Song('Feel So Close (Radio Edit)', 'Calvin Harris', '3:28', 'Feel So Close', 'audio/feel-so-close.mp3');
 var danzaKuduro = new Song('Danza Kuduro', 'Don Omar', '3:19', 'Meet the Orphans', 'audio/danza-kuduro.mp3');
+var goodLife = new Song('Good Life', 'Kanye West', '3:27', 'Graduation', 'audio/good-life.mp3');
+var mirrors = new Song('Mirrors', 'Justin Timberlake', '8:04', 'The 20/20 Experience', 'audio/mirrors.mp3');
+var nirvana = new Song('Nirvana', 'Sam Smith', '3:23', 'Nirvana EP', 'audio/nirvana.mp3');
+var soundtrack2MyLife = new Song('Soundtrack 2 My Life', 'Kid Cudi', '3:56', 'Man On the Moon - End of Day', 'audio/soundtrack-2-my-life.mp3');
+var rayBands = new Song('Ray Bands', 'B.o.B', '3:48', 'Strange Clouds', 'audio/ray-bands.mp3');
+var talkThatTalk = new Song('Talk That Talk', 'Rihanna', '3:30', 'Talk That Talk', 'audio/talk-that-talk.mp3');
+var cudiZone = new Song('Cudi Zone', 'Kid Cudi', '4:19', 'Man On the Moon - End of Day', 'audio/cudi-zone.mp3');
+
 var empty = new Song('empty', 'empty', 'empty', 'empty', 'empty');
 
 playlist.add(m83);
@@ -15,16 +23,14 @@ playlist.add(allOfTheLights);
 playlist.add(beautifulLasers);
 playlist.add(feelSoClose);
 playlist.add(danzaKuduro);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
-playlist.add(empty);
+playlist.add(goodLife);
+playlist.add(mirrors);
+playlist.add(nirvana);
+playlist.add(soundtrack2MyLife);
+playlist.add(rayBands);
+playlist.add(talkThatTalk);
+playlist.add(cudiZone);
+// playlist.add(empty);
 
 
 
