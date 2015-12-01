@@ -41,26 +41,34 @@ h1 {
     width: 100%;
 }
 
+.player-headings li:first-child {
+    width: 4%;
+    padding-left: 3%;
+}
+
 .player-headings li {
     display: inline-block;
-    width: 24.3%;
+    width: 19%;
     font-weight: bold;
     text-decoration: underline;
     text-align: left;
-    padding-left: 19px;
     border-top: none;
 }
 
 .player-headings li:nth-of-type(2) {
-    padding-left: 26px;
+    padding-left: 2%;
 }
 
 .player-headings li:nth-of-type(3) {
-    padding-left: 30px;
+    padding-left: 4%;
 }
 
 .player-headings li:nth-of-type(4) {
-    padding-left: 34px;
+    padding-left: 8.7%;
+}
+
+.player-headings li:nth-of-type(5) {
+    padding-left: 13.7%;
 }
 
 #playlist {
@@ -92,6 +100,10 @@ h1 {
     text-align: left;
 }
 
+.tracknumber {
+    padding-right: 10%;
+}
+
 .current {
     background: #E6E6E9;
 }
@@ -105,7 +117,6 @@ h1 {
     border: solid 1px #9999A1;
     width: 25px;
     height: 25px;
-/*    background: red;*/
     padding-left: 3px;
     padding-top: 5px;
     -moz-border-radius: 25px;

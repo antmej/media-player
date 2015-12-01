@@ -6,6 +6,7 @@ function Song(title, artist, duration, album, path) { // parameters/arguments be
 	this.artist = artist; // Song object is handles artist
 	this.album = album;
 	this.path = path; // path to audio file
+	this.trackNumber = 1;
 }
 
 Song.prototype = Object.create(Media.prototype);
@@ -13,12 +14,17 @@ Song.prototype = Object.create(Media.prototype);
 
 Song.prototype.toHTML = function () {
 
+	// var document.getElementById('playlist'); // MIGHT HAVE TO DELETE
+
 	var track, artist, duration, album, addToPlaylist;
 
-	track = "<li>" + this.title + "</li>";
+	track = "<li>" + "<span class='tracknumber'>" + this.trackNumber + "</span>" + this.title + "</li>";
 	artist = "<li>" + this.artist + "</li>";
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
+
+	// trackNumber += 1;
+	// "<span class='tracknumber'>" + trackNumber + "</span>" +
 
 	addToPlaylist = "<ul class='tracklist'>" + "<i class='fa fa-play circle'></i>" + track + artist + duration + album + "</ul>";
 	
@@ -26,7 +32,13 @@ Song.prototype.toHTML = function () {
 		addToPlaylist = "<ul class='tracklist current'>" + "<i class='fa fa-stop circle'></i>" + track + artist + duration + album + "</ul>";
 	}; // adds current class to currently playing song
 
+	this.trackNum(); // increment track number
+
 	return addToPlaylist;
+};
+
+Song.prototype.trackNum = function () {
+	return this.trackNumber += 1;
 };
 
 Song.prototype.nowPlaying = function () {
