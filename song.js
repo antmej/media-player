@@ -14,8 +14,6 @@ Song.prototype = Object.create(Media.prototype);
 
 Song.prototype.toHTML = function () {
 
-	// var document.getElementById('playlist'); // MIGHT HAVE TO DELETE
-
 	var track, artist, duration, album, addToPlaylist;
 
 	track = "<li>" + "<span class='tracknumber'>" + this.trackNumber + "</span>" + this.title + "</li>";
