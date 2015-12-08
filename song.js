@@ -1,19 +1,23 @@
 
 'use strict';
 
-function Song(title, artist, duration, album, path) { // parameters/arguments being passed in by line 3 in app.js
-	Media.call(this, title, duration); // Media object handles title and duration
+function Song(title, artist, duration, album, path) { // parameters/arguments being passed in
+	this.title = title;
+	this.duration = duration;
 	this.artist = artist; // Song object is handles artist
 	this.album = album;
 	this.path = path; // path to audio file
-	this.trackNumber = 1;
 }
 
-Song.prototype = Object.create(Media.prototype);
-// copies the references to Media's prototype properties and methods to Song's prototype properties
+Song.prototype.play = function () {
+	this.isPlaying = true;
+};
+
+Song.prototype.stop = function () {
+	this.isPlaying = false;
+};
 
 Song.prototype.toHTML = function () {
-
 	var track, artist, duration, album, addToPlaylist;
 
 	track = "<li>" + "<span class='tracknumber'>" + this.trackNumber + "</span>" + this.title + "</li>";
@@ -21,22 +25,13 @@ Song.prototype.toHTML = function () {
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
 
-	// trackNumber += 1;
-	// "<span class='tracknumber'>" + trackNumber + "</span>" +
-
-	addToPlaylist = "<ul class='tracklist'>" + "<i class='fa fa-play circle'></i>" + track + artist + duration + album + "</ul>";
+	addToPlaylist = "<ul class='tracklist'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
 	
-	if (this.isPlaying) {
-		addToPlaylist = "<ul class='tracklist current'>" + "<i class='fa fa-stop circle'></i>" + track + artist + duration + album + "</ul>";
-	}; // adds current class to currently playing song
-
-	this.trackNum(); // increment track number
+	if (this.isPlaying === true) {
+		addToPlaylist = "<ul class='tracklist current'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+	} // adds current class to currently playing song
 
 	return addToPlaylist;
-};
-
-Song.prototype.trackNum = function () {
-	return this.trackNumber += 1;
 };
 
 Song.prototype.nowPlaying = function () {
@@ -61,3 +56,25 @@ Song.prototype.audioStop = function () {
     audio.src = ''; // removing the source is a trick to stop the audio instead of just pausing it
     return audio;
 };
+
+Song.prototype.audioPlayIcon = function (id) { // from the parameter being passed in from the function call in index.html
+	playlist.stop(); // removes highlight
+	playlist.renderInElement(playlistElement); // updates HTML to show changes
+
+	var index = parseInt(id); // parseInt to convert 'id' from String to Number
+	playlist.nowPlayingIndex = index;
+
+	playlist.play(); 
+	playlist.renderInElement(playlistElement);
+}; // PROBABLY COMMENT EVERYTHING AND SAVE CHANGES TO GIT! and figure out playlist constructor before git save
+
+Song.prototype.audioStopIcon = function () {
+	playlist.stop();
+	playlist.renderInElement(playlistElement);
+};
+
+
+
+
+
+

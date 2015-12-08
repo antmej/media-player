@@ -17,6 +17,8 @@ var cudiZone = new Song('Cudi Zone', 'Kid Cudi', '4:19', 'Man On the Moon - End 
 
 var empty = new Song('empty', 'empty', 'empty', 'empty', 'empty');
 
+playlist.add(nirvana);
+playlist.add(rayBands);
 playlist.add(m83);
 playlist.add(sweetDreams);
 playlist.add(allOfTheLights);
@@ -25,9 +27,7 @@ playlist.add(feelSoClose);
 playlist.add(danzaKuduro);
 playlist.add(goodLife);
 playlist.add(mirrors);
-playlist.add(nirvana);
 playlist.add(soundtrack2MyLife);
-playlist.add(rayBands);
 playlist.add(talkThatTalk);
 playlist.add(cudiZone);
 // playlist.add(empty);
