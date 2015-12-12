@@ -77,7 +77,7 @@ h1 {
     overflow: scroll;
 }
 
-.tracklist {
+.track {
     background: #fff;
     width: 100%;
     list-style-type: none;
@@ -87,15 +87,15 @@ h1 {
     margin: 0;
 }
 
-.tracklist:last-child {
+.track:last-child {
     border-bottom: 1px solid #D5DDE4;
 }
 
-.tracklist li:first-child {
+.track li:first-child {
     width: auto;
 }
 
-.tracklist li {
+.track li {
     display: inline-block;
     color: #2C3238;
     padding: 15px;

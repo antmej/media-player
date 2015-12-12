@@ -9,11 +9,11 @@ function Song(title, artist, duration, album, path) { // parameters/arguments be
 	this.path = path; // path to audio file
 }
 
-Song.prototype.play = function () {
+Song.prototype.highlight = function () {
 	this.isPlaying = true;
 };
 
-Song.prototype.stop = function () {
+Song.prototype.removeHighlight = function () {
 	this.isPlaying = false;
 };
 
@@ -25,10 +25,10 @@ Song.prototype.toHTML = function () {
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
 
-	addToPlaylist = "<ul class='tracklist'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+	addToPlaylist = "<ul class='track'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
 	
 	if (this.isPlaying === true) {
-		addToPlaylist = "<ul class='tracklist current'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+		addToPlaylist = "<ul class='track current'>" + "<li><i  " + 'id=' + this.identification + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
 	} // adds current class to currently playing song
 
 	return addToPlaylist;

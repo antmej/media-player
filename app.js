@@ -14,13 +14,14 @@ var soundtrack2MyLife = new Song('Soundtrack 2 My Life', 'Kid Cudi', '3:56', 'Ma
 var rayBands = new Song('Ray Bands', 'B.o.B', '3:48', 'Strange Clouds', 'audio/ray-bands.mp3');
 var talkThatTalk = new Song('Talk That Talk', 'Rihanna', '3:30', 'Talk That Talk', 'audio/talk-that-talk.mp3');
 var cudiZone = new Song('Cudi Zone', 'Kid Cudi', '4:19', 'Man On the Moon - End of Day', 'audio/cudi-zone.mp3');
+var cantHave = new Song("Can't Have (Ape Drums Remix)", 'Steven A. Clark', '4:01', "Can't Have (Ape Drums Remix)", "audio/can't-have.mp3");
 
 var empty = new Song('empty', 'empty', 'empty', 'empty', 'empty');
 
+playlist.add(cantHave);
 playlist.add(nirvana);
 playlist.add(rayBands);
 playlist.add(m83);
-playlist.add(sweetDreams);
 playlist.add(allOfTheLights);
 playlist.add(beautifulLasers);
 playlist.add(feelSoClose);
@@ -30,14 +31,13 @@ playlist.add(mirrors);
 playlist.add(soundtrack2MyLife);
 playlist.add(talkThatTalk);
 playlist.add(cudiZone);
+playlist.add(sweetDreams);
 // playlist.add(empty);
 
 
 
 var playlistElement = document.getElementById('playlist');
 playlist.renderInElement(playlistElement);
-
-// var audio = document.getElementById('audio');
 
 var playButton = document.getElementById('play');
 playButton.onclick = function () {
@@ -56,4 +56,13 @@ stopButton.onclick = function () {
 	playlist.stop();
 	playlist.renderInElement(playlistElement);
 };
+
+var backButton = document.getElementById('back');
+backButton.onclick = function () {
+	playlist.back();
+	playlist.renderInElement(playlistElement);
+};
+
+
+
 
