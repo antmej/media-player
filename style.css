@@ -118,6 +118,11 @@ h1 {
     text-align: center;
 }
 
+.fa-stop {
+    font-size: 0.80em;
+    text-align: center;
+}
+
 .fa-volume-up {
     font-size: 0.875em;
     padding-left: 6px !important;

@@ -18,6 +18,9 @@ var cantHave = new Song("Can't Have (Ape Drums Remix)", 'Steven A. Clark', '4:01
 
 var empty = new Song('empty', 'empty', 'empty', 'empty', 'empty');
 
+// console.log(goodLife.constructor);
+
+playlist.add(talkThatTalk);
 playlist.add(cantHave);
 playlist.add(nirvana);
 playlist.add(rayBands);
@@ -29,7 +32,6 @@ playlist.add(danzaKuduro);
 playlist.add(goodLife);
 playlist.add(mirrors);
 playlist.add(soundtrack2MyLife);
-playlist.add(talkThatTalk);
 playlist.add(cudiZone);
 playlist.add(sweetDreams);
 // playlist.add(empty);
@@ -40,20 +42,27 @@ var playlistElement = document.getElementById('playlist');
 playlist.renderInElement(playlistElement);
 
 var playButton = document.getElementById('play');
+
 playButton.onclick = function () {
+	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
 	playlist.play();
 	playlist.renderInElement(playlistElement);
+
+	playButton.innerHTML = '<i class="fa fa-stop"></i>';
+	return;
+
+	} else {
+	playlist.stop();
+	playlist.renderInElement(playlistElement);
+
+	playButton.innerHTML = '<i class="fa fa-play"></i>';
+	return;
+	}
 };
 
 var nextButton = document.getElementById('next');
 nextButton.onclick = function () {
 	playlist.next();
-	playlist.renderInElement(playlistElement);
-};
-
-var stopButton = document.getElementById('stop');
-stopButton.onclick = function () {
-	playlist.stop();
 	playlist.renderInElement(playlistElement);
 };
 
