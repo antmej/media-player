@@ -18,20 +18,19 @@ Song.prototype.removeCurrent = function () {
 	this.isPlaying = false;
 };
 
-Song.prototype.toHTML = function () {
+Song.prototype.toHTML = function (trackNumber, index, id) {
 	var track, artist, duration, album, addToPlaylist;
-
-	track = "<li>" + "<span class='tracknumber'>" + this.trackNumber + "</span>" + this.title + "</li>";
+	track = "<li>" + "<span class='tracknumber'>" + trackNumber + "</span>" + this.title + "</li>";
 	artist = "<li>" + this.artist + "</li>";
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
 
-	console.log(this.isPlaying);
+	// console.log(this.isPlaying);
 
-	addToPlaylist = "<ul class='track'>" + "<li><i  " + 'id=' + this.id + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+	addToPlaylist = "<ul class='track' " + "data-index='" + index + "'onclick='Song.prototype.selectTrack(this.getAttribute(\"data-index\"));' " + ">" + "<li><i  " + 'id=' + id + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
 	
 	if (this.isPlaying === true) {
-		addToPlaylist = "<ul class='track current'>" + "<li><i  " + 'id=' + this.id + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+		addToPlaylist = "<ul class='track current'>" + "<li><i  " + 'id=' + id + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
 	}
 
 	return addToPlaylist;
@@ -84,8 +83,36 @@ Song.prototype.audioStopIcon = function () {
 	}
 };
 
+Song.prototype.selectTrack = function (index) {
+	var tracks = [], i, x, length;
 
-// if specific song is playing update play button icon to pause icon 
+	tracks = document.getElementsByClassName('track');
+	i = index;
+	x = 0;
+	length = tracks.length;
+
+	for (x = 0; x < length; x += 1) {
+		if (tracks[x].className === 'track select') {
+			tracks[x].className = 'track';
+		}
+	}
+
+	if (tracks[i].className === 'track') { // if track has JUST 'track' as class name add 'select' to it as well
+		tracks[i].className += ' select';
+	} // after this has happened exit function?
+};
+
+Song.prototype.removeSelectTrack = function () {
+	if (i !== null || undefined) { // if 'i' already has a value
+		x = i; // pass it to 'x'
+
+		if (tracks[x].className === 'track select') {
+			tracks[x].className = 'track';
+		}
+		
+		i = index; // then update 'i' with new value being passed in by 'index'
+	}
+};
 
 
 
