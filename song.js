@@ -75,6 +75,8 @@ Song.prototype.audioPlayIcon = function(id) { // from the parameter being passed
 	playlist.stop(); // removes highlight and stops audio
 
 	var index = parseInt(id); // parseInt to convert 'id' from String to Number
+	// ^^^ rewrite this, use data-index instead of ID
+
 	playlist.nowPlayingIndex = index;
 
 	playlist.play(); 
@@ -121,7 +123,7 @@ Song.prototype.selectTrack = function(index) {
 Song.prototype.doubleClickTrack = function(index) {
 	playlist.stop(); // removes highlight and stops audio
 
-	var index = parseInt(index); // parseInt to convert 'index' from String to Number
+	var index = index; // parseInt to convert 'index' from String to Number
 	playlist.nowPlayingIndex = index;
 
 	playlist.play(); 
