@@ -27,10 +27,22 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 
 	// console.log(this.isPlaying);
 
-	addToPlaylist = "<ul class='track' " + "data-index='" + index + "'onclick='Song.prototype.selectTrack(this.getAttribute(\"data-index\"));' " + ">" + "<li><i  " + 'id=' + id + " class='fa fa-play circle' onclick='Song.prototype.audioPlayIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
-	
+	addToPlaylist = "<ul class=\'track\'";
+	addToPlaylist += "data-index=\'" + index + "\'";
+	addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
+	addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
+	addToPlaylist += "<li><i id=\'" + id + "\' class=\'fa fa-play circle\' onclick=\'Song.prototype.audioPlayIcon(this.id);\'></i></li>";
+	addToPlaylist += track + artist + duration + album + "</ul>";
+
+
 	if (this.isPlaying === true) {
-		addToPlaylist = "<ul class='track current'>" + "<li><i  " + 'id=' + id + " class='fa fa-volume-up circle' onclick='Song.prototype.audioStopIcon(this.id);'></i></li>" + track + artist + duration + album + "</ul>";
+		addToPlaylist = "<ul class=\'track current class\'"; 
+		addToPlaylist += "data-index\'" + index + "\'";
+		addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'>";
+		addToPlaylist += "<li><i id=\'" + id + "\'";
+		addToPlaylist += "class=\'fa fa-volume-up circle\'";
+		addToPlaylist += "onclick=\'Song.prototype.audioStopIcon(this.id);\'></i></li>";
+		addToPlaylist += track + artist + duration + album + "</ul>";
 	}
 
 	return addToPlaylist;
@@ -59,15 +71,14 @@ Song.prototype.audioStop = function () {
     // return audio;
 };
 
-Song.prototype.audioPlayIcon = function (id) { // from the parameter being passed in from the function call in index.html
-	playlist.stop(); // removes highlight
-	playlist.renderInElement(playlistElement); // updates HTML to show changes
+Song.prototype.audioPlayIcon = function(id) { // from the parameter being passed in from the function call in index.html
+	playlist.stop(); // removes highlight and stops audio
 
 	var index = parseInt(id); // parseInt to convert 'id' from String to Number
 	playlist.nowPlayingIndex = index;
 
 	playlist.play(); 
-	playlist.renderInElement(playlistElement);
+	playlist.renderInElement(playlistElement); // updates HTML to show changes
 
 	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
 		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
@@ -83,22 +94,41 @@ Song.prototype.audioStopIcon = function () {
 	}
 };
 
-Song.prototype.selectTrack = function (index) {
+Song.prototype.selectTrack = function(index) {
 	var tracks = [], i, x, length;
+	console.log(index);
 
 	tracks = document.getElementsByClassName('track');
 	i = index;
-	x = 0;
 	length = tracks.length;
 
-	for (x = 0; x < length; x += 1) { // loop through all tracks in 'tracks array' 
-		if (tracks[x].className === 'track select') { // if any track has 'track select' as class name(s)
+	for (x = 0; x < length; x += 1) { 
+		if (tracks[x].className === 'track select' || 'track current select') { 
 			tracks[x].className = 'track'; // change class name(s) to just 'track'
 		}
 	}
 
-	if (tracks[i].className === 'track') { // if any track in 'tracks array' has JUST 'track' as a class name add 'select' to it as well
+	if (tracks[i].className === 'track') { 
 		tracks[i].className += ' select';
+		console.log(i);
+	}
+
+	// loop through all tracks in 'tracks array'
+	// 		if any track has 'track select' as class name(s)
+	//  if any track in 'tracks array' has JUST 'track' as a class name add 'select' to it as well
+};
+
+Song.prototype.doubleClickTrack = function(index) {
+	playlist.stop(); // removes highlight and stops audio
+
+	var index = parseInt(index); // parseInt to convert 'index' from String to Number
+	playlist.nowPlayingIndex = index;
+
+	playlist.play(); 
+	playlist.renderInElement(playlistElement); // updates HTML to show changes
+
+	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
+		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
 	}
 };
 

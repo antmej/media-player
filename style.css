@@ -106,6 +106,7 @@ h1 {
 }
 
 .current {
+    cursor: pointer;
     background: #E6E6E9;
 }
 
@@ -125,6 +126,7 @@ h1 {
 }
 
 .fa-volume-up {
+    color: #FF6663;
     font-size: 0.875em;
     padding-left: 6px !important;
 }
