@@ -102,17 +102,6 @@ Song.prototype.selectTrack = function (index) {
 	} // after this has happened exit function?
 };
 
-Song.prototype.removeSelectTrack = function () {
-	if (i !== null || undefined) { // if 'i' already has a value
-		x = i; // pass it to 'x'
-
-		if (tracks[x].className === 'track select') {
-			tracks[x].className = 'track';
-		}
-		
-		i = index; // then update 'i' with new value being passed in by 'index'
-	}
-};
 
 
 
