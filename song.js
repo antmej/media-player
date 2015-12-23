@@ -91,15 +91,15 @@ Song.prototype.selectTrack = function (index) {
 	x = 0;
 	length = tracks.length;
 
-	for (x = 0; x < length; x += 1) {
-		if (tracks[x].className === 'track select') {
-			tracks[x].className = 'track';
+	for (x = 0; x < length; x += 1) { // loop through all tracks in 'tracks array' 
+		if (tracks[x].className === 'track select') { // if any track has 'track select' as class name(s)
+			tracks[x].className = 'track'; // change class name(s) to just 'track'
 		}
 	}
 
-	if (tracks[i].className === 'track') { // if track has JUST 'track' as class name add 'select' to it as well
+	if (tracks[i].className === 'track') { // if any track in 'tracks array' has JUST 'track' as a class name add 'select' to it as well
 		tracks[i].className += ' select';
-	} // after this has happened exit function?
+	}
 };
 
 
