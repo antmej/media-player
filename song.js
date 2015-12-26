@@ -32,7 +32,9 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 	addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
 	addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
 	addToPlaylist += "<li><i id=\'" + id + "\' class=\'fa fa-play circle\' onclick=\'Song.prototype.audioPlayIcon(this.id);\'></i></li>";
-	addToPlaylist += track + artist + duration + album + "</ul>";
+	addToPlaylist += track + artist + duration + album;
+	addToPlaylist += "<li><i class=\'fa fa-search-plus\'></i></li>";
+	addToPlaylist += "</ul>"
 
 
 	if (this.isPlaying === true) {
@@ -43,7 +45,9 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 		addToPlaylist += "<li><i id=\'" + id + "\'";
 		addToPlaylist += "class=\'fa fa-volume-up circle\'";
 		addToPlaylist += "onclick=\'Song.prototype.audioStopIcon(this.id);\'></i></li>";
-		addToPlaylist += track + artist + duration + album + "</ul>";
+		addToPlaylist += track + artist + duration + album;
+		addToPlaylist += "<li><i class=\'fa fa-search-plus\'></i></li>";
+		addToPlaylist += "</ul>"
 	}
 
 	return addToPlaylist;
@@ -99,10 +103,10 @@ Song.prototype.audioStopIcon = function () {
 
 Song.prototype.selectTrack = function(index) {
 	var tracks = [], i, x, length;
-	console.log(index);
 
 	tracks = document.getElementsByClassName('track');
-	i = index;
+	i = parseInt(index); // parseInt to convert 'id' from String to Number
+	// console.log(typeof i);
 	length = tracks.length;
 
 	for (x = 0; x < length; x += 1) { 
@@ -113,7 +117,7 @@ Song.prototype.selectTrack = function(index) {
 
 	if (tracks[i].className === 'track') { 
 		tracks[i].className += ' select';
-		console.log(i);
+		// console.log(i);
 	}
 
 	// loop through all tracks in 'tracks array'
@@ -122,10 +126,12 @@ Song.prototype.selectTrack = function(index) {
 };
 
 Song.prototype.doubleClickTrack = function(index) {
-	playlist.stop(); // removes highlight and stops audio
+	var index = parseInt(index); // parseInt to convert 'id' from String to Number
+	// console.log(typeof index);
 
-	var index = index; // parseInt to convert 'index' from String to Number
 	playlist.nowPlayingIndex = index;
+
+	playlist.stop(); // removes highlight and stops audio
 
 	playlist.play(); 
 	playlist.renderInElement(playlistElement); // updates HTML to show changes

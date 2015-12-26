@@ -63,8 +63,6 @@ Playlist.prototype.back = function() {
 	}
 	// if the first song is selected and playing and the user clicks the back button, start playing from end of playlist
 
-	console.log(this.nowPlayingIndex);
-
 	playlist.play(); 
 	// play the next song in the songs array using existing play method on playlist object
 };

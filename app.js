@@ -60,12 +60,20 @@ var nextButton = document.getElementById('next');
 nextButton.onclick = function () {
 	playlist.next();
 	playlist.renderInElement(playlistElement);
+	
+	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
+		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
+	}
 };
 
 var backButton = document.getElementById('back');
 backButton.onclick = function () {
 	playlist.back();
 	playlist.renderInElement(playlistElement);
+
+	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
+		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
+	}
 };
 
 
