@@ -42,10 +42,14 @@ var playlistElement = document.getElementById('playlist');
 playlist.renderInElement(playlistElement);
 
 var audio = document.getElementById('audio');
-audio.onended = function () {
+audio.onended = function () { // once audio ends run this function
 	// alert(audio.currentTime);
 	playlist.stop();
 	playlist.nowPlayingIndex += 1;
+		if (playlist.nowPlayingIndex === playlist.songs.length) {
+			playlist.nowPlayingIndex = 0;
+		} 
+		// if end of playlist is reached, start back at the top
 	playlist.play();
 	playlist.renderInElement(playlistElement);
 }
