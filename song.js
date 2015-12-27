@@ -38,7 +38,7 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 
 
 	if (this.isPlaying === true) {
-		addToPlaylist = "<ul class=\'track current class\'"; 
+		addToPlaylist = "<ul class=\'track current select\'"; 
 		addToPlaylist += "data-index=\'" + index + "\'";
 		addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
 		addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";

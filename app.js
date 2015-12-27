@@ -41,6 +41,15 @@ playlist.add(talkThatTalk);
 var playlistElement = document.getElementById('playlist');
 playlist.renderInElement(playlistElement);
 
+var audio = document.getElementById('audio');
+audio.onended = function () {
+	// alert(audio.currentTime);
+	playlist.stop();
+	playlist.nowPlayingIndex += 1;
+	playlist.play();
+	playlist.renderInElement(playlistElement);
+}
+
 var playButton = document.getElementById('play');
 playButton.onclick = function () {
 	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
@@ -75,6 +84,16 @@ backButton.onclick = function () {
 		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
 	}
 };
+
+
+
+
+
+
+
+
+
+
 
 
 
