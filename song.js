@@ -33,7 +33,7 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 	addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
 	addToPlaylist += "<li><i id=\'" + id + "\' class=\'fa fa-play circle\' onclick=\'Song.prototype.audioPlayIcon(this.id);\'></i></li>";
 	addToPlaylist += track + artist + duration + album;
-	addToPlaylist += "<li><i class=\'fa fa-search-plus\'></i></li>";
+	addToPlaylist += "<li><i id='info' class=\'fa fa-caret-down square\'></i></li>";
 	addToPlaylist += "</ul>"
 
 
@@ -46,7 +46,7 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 		addToPlaylist += "class=\'fa fa-volume-up circle\'";
 		addToPlaylist += "onclick=\'Song.prototype.audioStopIcon(this.id);\'></i></li>";
 		addToPlaylist += track + artist + duration + album;
-		addToPlaylist += "<li><i class=\'fa fa-search-plus\'></i></li>";
+		addToPlaylist += "<li><i id='info' class=\'fa fa-caret-down square\'></i></li>";
 		addToPlaylist += "</ul>"
 	}
 
@@ -141,6 +141,9 @@ Song.prototype.doubleClickTrack = function(index) {
 	}
 };
 
+Song.prototype.trackInfo = function () {
+
+};
 
 
 

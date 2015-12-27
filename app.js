@@ -89,6 +89,14 @@ backButton.onclick = function () {
 	}
 };
 
+var infoButton = document.getElementById('info');
+infoButton.onclick = function () {
+	console.log(infoButton);
+	if (infoButton.className === 'fa fa-caret-down square') {
+		infoButton.className = 'fa fa-caret-up square';
+	}
+};
+
 
 
 

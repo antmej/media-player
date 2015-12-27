@@ -121,6 +121,8 @@ h1 {
 }
 
 .track li:nth-of-type(6) {
+    width: 6%;
+    text-align: right;
     padding: 5px;
 }
 
@@ -155,23 +157,39 @@ h1 {
     padding-left: 6px !important;
 }
 
-.fa-search-plus{
+.fa-caret-down {
     color: #0B3954;
-    font-size: 1.313em;
+    font-size: 1.4em;
     cursor: pointer;
-    padding: 10px;
+/*    padding: 10px;*/
+}
+
+.fa-caret-up {
+    color: #0B3954;
+    font-size: 1.4em;
+    cursor: pointer;
 }
 
 .circle {
-    border: solid 1px #9999A1;
     width: 25px;
     height: 25px;
     padding-left: 3px;
     padding-top: 5px;
+    border: solid 1px #9999A1;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     border-radius: 25px;
 }
+
+
+.square {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: solid 1px #9999A1;
+    /*background: red;*/
+}
+
 
 .circle:hover {
     cursor: pointer;
