@@ -82,6 +82,7 @@ Playlist.prototype.renderInElement = function(playlistElement) {
 	var numOfSongs = playlist.songs.length;
 	
 	for (var i = 0; i < numOfSongs; i += 1) {	
+		
 		var trackNumber, index, id;
 		
 		trackNumber = this.tracks[i];

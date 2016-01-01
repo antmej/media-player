@@ -126,23 +126,16 @@ Song.prototype.selectTrack = function(index) {
 };
 
 Song.prototype.doubleClickTrack = function(index) {
+	playlist.stop(); // removes highlight and stops audios
 	var index = parseInt(index); // parseInt to convert 'id' from String to Number
 	// console.log(typeof index);
-
 	playlist.nowPlayingIndex = index;
-
-	playlist.stop(); // removes highlight and stops audio
-
 	playlist.play(); 
 	playlist.renderInElement(playlistElement); // updates HTML to show changes
 
 	if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
 		return playButton.innerHTML = '<i class="fa fa-stop"></i>';
 	}
-};
-
-Song.prototype.trackInfo = function () {
-
 };
 
 
