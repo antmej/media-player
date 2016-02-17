@@ -3,6 +3,7 @@ function Playlist() {
 	this.songs = [];
 	this.nowPlayingIndex = 0;
 	this.tracks = []; // track numbers
+	this.artist = [];
 }
 
 Playlist.prototype.add = function(song) {
@@ -72,6 +73,10 @@ Playlist.prototype.countTracks = function () {
 	var count = this.songs.length; 
 	// checks the length of each time an item is added to songs array
 	this.tracks.push(count);
+};
+
+Playlist.prototype.addArtist = function(artistInfo) {
+	this.artist.push(artistInfo);
 };
 
 Playlist.prototype.renderInElement = function(playlistElement) {
