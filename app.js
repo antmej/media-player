@@ -47,9 +47,9 @@ var kidCudi = new Artist('Kid Cudi', 'https://upload.wikimedia.org/wikipedia/en/
 
 var kidCudiManOnTheMoon = new Artist('Kid Cudi', 'https://upload.wikimedia.org/wikipedia/en/2/26/ManonTheMoonTheEndofDay.jpg', 'Scott Ramon Seguro Mescudi is an American recording artist and actor from Cleveland, Ohio. Cudi first gained major recognition following the release of his first official full-length project, a mixtape titled A Kid Named Cudi (2008). The mixtape caught the attention of American rapper-producer Kanye West, who subsequently signed Cudi to his GOOD Music label imprint in late 2008.', 'https://en.wikipedia.org/wiki/Kid_Cudi', 'Speedin\' Bullet 2 Heaven (2015)', 'Indicud (2013)');
 
-var beyonceKnowles = new Artist('Beyonce Knowles', 'https://upload.wikimedia.org/wikipedia/en/9/96/I_Am..._Sasha_Fierce.png', 'Beyonce Giselle Knowles-Carter is an American singer, songwriter, record producer and actress. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child, and rose to fame in the late 1990s as lead singer of R&B girl-group Destiny\'s Child. Managed by her father, Mathew Knowles, the group became one of the world\'s best-selling girl groups of all time. Their hiatus saw the release of Beyonce\'s debut album, Dangerously in Love (2003), which established her as a solo artist worldwide, earned five Grammy Awards and featured the Billboard Hot 100 number-one singles "Crazy in Love" and "Baby Boy".', 'https://en.wikipedia.org/wiki/Beyonc%C3%A9', 'BEYONCE (2013)', '4 (2011)');
+var beyonceKnowles = new Artist('Beyonce Knowles', 'https://upload.wikimedia.org/wikipedia/en/9/96/I_Am..._Sasha_Fierce.png', 'Beyonce Giselle Knowles-Carter is an American singer, songwriter, record producer and actress. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child, and rose to fame in the late 1990s as lead singer of R&B girl-group Destiny\'s Child. Managed by her father, Mathew Knowles, the group became one of the world\'s best-selling girl groups of all time. Their hiatus saw the release of Beyonce\'s debut album, Dangerously in Love (2003), which established her as a solo artist worldwide.', 'https://en.wikipedia.org/wiki/Beyonc%C3%A9', 'BEYONCE (2013)', '4 (2011)');
 
-var rihanna = new Artist('Rihanna', 'https://upload.wikimedia.org/wikipedia/en/7/7a/Rihanna_-_Talk_That_Talk_(deluxe).png', 'With sales exceeding 200 million records worldwide, Rihanna is one of the best-selling artists of all time.  Rihanna is the youngest and fastest solo artist to earn thirteen number-one singles on the Billboard Hot 100, and was named the Digital Songs Artist of the 2000s decade and the top Hot 100 artist of the 2010s decade by Billboard.', 'https://en.wikipedia.org/wiki/Rihanna', 'Anti (2016)', 'Unapologetic (2011)');
+var rihanna = new Artist('Rihanna', 'https://upload.wikimedia.org/wikipedia/en/7/7a/Rihanna_-_Talk_That_Talk_(deluxe).png', 'With sales exceeding 200 million records worldwide, Rihanna is one of the best-selling artists of all time.  Rihanna is the youngest and fastest solo artist to earn thirteen number-one singles on the Billboard Hot 100, and was named the Digital Songs Artist of the 2000s decade and the top Hot 100 artist of the 2010s decade by Billboard.', 'https://en.wikipedia.org/wiki/Rihanna', 'Anti (2016)', 'Unapologetic (2012)');
 
 
 // TRACK AND ARTIST INFO ADDED TO PLAYLIST
@@ -206,13 +206,13 @@ function runSelect() {
 			parent.insertBefore(menu, reference);
 
 			var b00p = document.getElementById('boop');
-			b00p.innerHTML += '<li>' + '<img src=\"' + playlist.artist[i].img + '\">' + '</li>';
-			b00p.innerHTML += '<li><h1>' + playlist.artist[i].name + '</h1>' + playlist.artist[i].bio + '<a href=\"' + playlist.artist[i].link + '\" target="_blank">(more)</a></li>';
+			b00p.innerHTML += '<li>' + '<img src=\"' + playlist.artist[i].img + '\" alt="artist album cover">' + '</li>';
+			b00p.innerHTML += '<li><h1>' + playlist.artist[i].name + '</h1>' + '<p>' + playlist.artist[i].bio + '<a href=\"' + playlist.artist[i].link + '\" target="_blank">(more)</a> </p></li>';
 
 			var track1 = '<span>' + playlist.artist[i].album1 + '</span><hr><br>';
 			var track2 = '<span>' + playlist.artist[i].album2 + '</span><hr><br>';
 			// var track3 = '<i class="fa fa-play circle"></i><span>' + playlist.artist[i].track3 + '</span><hr><br>';
-			b00p.innerHTML += '<li>' + '<span><h3>Albums</h3></span>' + track1 + track2 + '</li>';
+			b00p.innerHTML += '<li>' + '<h3>Albums</h3>' + track1 + track2 + '</li>';
 			// console.log(b00p);
 			return;
 
