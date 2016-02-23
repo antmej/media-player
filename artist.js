@@ -1,3 +1,4 @@
+'use strict';
 
 function Artist (name, img, bio, link, album1, album2) {
 	this.name = name;

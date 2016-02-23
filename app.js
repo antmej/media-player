@@ -1,3 +1,4 @@
+'use strict';
 
 // TRACK INFO
 var playlist = new Playlist();

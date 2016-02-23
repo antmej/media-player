@@ -1,4 +1,3 @@
-
 'use strict';
 
 function Song(title, artist, duration, album, path) { // parameters/arguments being passed in
