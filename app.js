@@ -101,12 +101,8 @@ playlist.addArtist(rihanna);
 // playlist.add(empty);
 
 
-
-
 var playlistElement = document.getElementById('playlist');
 playlist.renderInElement(playlistElement);
-
-
 
 
 var audio = document.getElementById('audio');
