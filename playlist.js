@@ -94,7 +94,7 @@ Playlist.prototype.renderInElement = function(playlistElement) {
 		
 		index = this.tracks[i] - 1;	
 		
-		id = this.tracks[i] - 1;
+		id = this.tracks[i] - 1; // PROBABLY DON'T NEED THIS ANYMORE 
 
 		playlistElement.innerHTML += this.songs[i].toHTML(trackNumber, index, id); 
 		// trackNumber, index, id is passed as an argument to toHTML()

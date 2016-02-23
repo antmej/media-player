@@ -12,11 +12,11 @@ function Song(title, artist, duration, album, path) { // parameters/arguments be
 
 Song.prototype.current = function () {
 	this.isPlaying = true;
-};
+}; // highlights selected track with grey
 
 Song.prototype.removeCurrent = function () {
 	this.isPlaying = false;
-};
+}; // removes highlight
 
 Song.prototype.toHTML = function (trackNumber, index, id) {
 	var track, artist, duration, album, addToPlaylist;
@@ -25,15 +25,13 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 	duration = "<li>" + this.duration + "</li>";
 	album = "<li>" + this.album + "</li>";
 
-	// console.log(this.isPlaying);
-
 	addToPlaylist = "<ul class=\'track\'";
 	addToPlaylist += "data-index=\'" + index + "\'";
 	addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
 	addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
-	addToPlaylist += "<li><i id=\'" + id + "\' class=\'fa fa-play circle\' onclick=\'Song.prototype.audioPlayIcon(this.id);\'></i></li>";
+	addToPlaylist += "<li><i class=\'fa fa-play circle\' data-index=\'" + index + "\' onclick=\'Song.prototype.audioPlayIcon(this.getAttribute(\"data-index\"));\'></i></li>";
 	addToPlaylist += track + artist + duration + album;
-	addToPlaylist += "<li><i class=\'info fa fa-caret-down square\'></i></li>";
+	addToPlaylist += "<li><i class=\'info fa fa-caret-down square\' data-index=\'" + index + "\' onclick=\'runToggle(this.getAttribute(\"data-index\"));\'></i></li>";
 	addToPlaylist += "</ul>"
 
 
@@ -42,11 +40,11 @@ Song.prototype.toHTML = function (trackNumber, index, id) {
 		addToPlaylist += "data-index=\'" + index + "\'";
 		addToPlaylist += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
 		addToPlaylist += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
-		addToPlaylist += "<li><i id=\'" + id + "\'";
-		addToPlaylist += "class=\'fa fa-volume-up circle\'";
-		addToPlaylist += "onclick=\'Song.prototype.audioStopIcon(this.id);\'></i></li>";
+		addToPlaylist += "<li><i class=\'fa fa-volume-up circle\'";
+		addToPlaylist += "data-index=\'" + index + "\'";
+		addToPlaylist += "onclick=\'Song.prototype.audioStopIcon(this.getAttribute(\"data-index\"));\'></i></li>";
 		addToPlaylist += track + artist + duration + album;
-		addToPlaylist += "<li><i class=\'info fa fa-caret-down square\'></i></li>";
+		addToPlaylist += "<li><i class=\'info fa fa-caret-down square\' data-index=\'" + index + "\' onclick=\'runToggle(this.getAttribute(\"data-index\"));\'></i></li>";
 		addToPlaylist += "</ul>"
 	}
 
@@ -76,11 +74,10 @@ Song.prototype.audioStop = function () {
     // return audio;
 };
 
-Song.prototype.audioPlayIcon = function(id) { // from the parameter being passed in from the function call in index.html
+Song.prototype.audioPlayIcon = function(index) { // from the parameter being passed in from the function call in index.html
 	playlist.stop(); // removes highlight and stops audio
 
-	var index = parseInt(id); // parseInt to convert 'id' from String to Number
-	// ^^^ rewrite this, use data-index instead of ID
+	var index = parseInt(index); // parseInt to convert 'id' from String to Number
 
 	playlist.nowPlayingIndex = index;
 
@@ -115,14 +112,13 @@ Song.prototype.selectTrack = function(index) {
 		}
 	}
 
+
 	if (tracks[i].className === 'track') { 
 		tracks[i].className += ' select';
-		runSelect(); // this function is in app.js
-		// console.log(i);
 	}
 
 	// loop through all tracks in 'tracks array'
-	// 		if any track has 'track select' as class name(s)
+	// 		if any track has 'track select' as class name(s) or 'track current select' change class name(s) to just 'track'
 	//  if any track in 'tracks array' has JUST 'track' as a class name add 'select' to it as well
 };
 
