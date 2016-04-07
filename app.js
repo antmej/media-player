@@ -2,6 +2,7 @@
 
 // TRACK INFO
 var playlist = new Playlist();
+
 var miracle, everyBreakingWave, california, songForSomeone, iris, volcano, raisedByWolves, cedarwoodRoad, sleepLikeABabyTonight, thisIsWhereYouCanReachMeNow, troubles;
 
 
@@ -31,6 +32,7 @@ troubles = new Song('The Troubles', 'U2', '4:45', 'Songs of Innocence', 'audio/t
 
 // ARTIST INFO
 var artist = new Artist();
+
 var u2Miracle, u2EveryBreakingWave, u2California, u2SongForSomeone, u2Iris, u2Volcano, u2RaisedByWolves, u2CedarwoodRoad, u2SleepLikeABabyTonight, u2ThisIsWhereYouCanReachMeNow, u2Troubles;
 
 u2Miracle = new Artist('U2', 'https://upload.wikimedia.org/wikipedia/en/9/94/U2_Songs_of_Innocence_cover.jpg', 'Songs of Innocence is the thirteenth studio album by Irish rock band U2. Released on 9 September 2014, it was produced by Danger Mouse, with additional production from Paul Epworth, Ryan Tedder, Declan Gaffney and Flood. The album was announced at an Apple Inc. product launch event and released the same day to all iTunes Store customers at no cost.', 'https://en.wikipedia.org/wiki/Songs_of_Innocence_(U2_album)', 'No Line On The Horizon (2009)', 'How to Dismantle An Atomic Bomb (2004)');
