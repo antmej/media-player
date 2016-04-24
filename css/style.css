@@ -145,13 +145,8 @@ h3 {
 }
 
 
-/********** CURRENT & SELECT **********/
-/*(current song playing & user selected track)*/
-
-.current {
-    cursor: pointer;
-    background: #E6E6E9;
-}
+/********** SELECT **********/
+/* current song playing & user selected track */
 
 .select {
     cursor: pointer;
@@ -269,7 +264,9 @@ button {
 
 /********** TOGGLE WINDOW **********/
 
-#toggle {
+/* attribute selector - select any ul element with an id attribute with a value of 'toggle' somewhere in it */
+ul[id*="toggle"] {
+    display: none; /* set to none for jQuery animation */
     height: 350px;
     background-color: #222;
     list-style: none;
@@ -278,7 +275,7 @@ button {
     margin-bottom: 0;
 }
 
-#toggle li {
+ul[id*="toggle"] li {
     height: 275px;
     width: 375px;
     vertical-align: middle;
@@ -288,53 +285,53 @@ button {
     margin-top: 30px;
 }
 
-#toggle h1 {
+ul[id*="toggle"] h1 {
     padding-bottom: 0px;
 }
 
-#toggle h3 {
+ul[id*="toggle"] h3 {
     margin-bottom: 16px;
 }
 
-#toggle li:nth-of-type(1) {
+ul[id*="toggle"] li:nth-of-type(1) {
     width: 275px !important;
     margin-left: 50px;
 }
 
-#toggle li:nth-of-type(2) {
+ul[id*="toggle"] li:nth-of-type(2) {
     margin-right: 100px;
     margin-left: 100px;
 }
 
-#toggle li h1 {
+ul[id*="toggle"] li h1 {
     color: #FF6663;
     padding-top: 0;
 }
 
-#toggle li i {
+ul[id*="toggle"] li i {
     color: #fff;
 }
 
-#toggle li hr {
+ul[id*="toggle"] li hr {
     border-color: #2A2A2A;
     border-width: 1px;
     box-shadow: 0 1px #2A2A2A;
     margin-top: 8px;
 }
 
-#toggle img {
+ul[id*="toggle"] img {
     height: 275px;
     width: auto;
 }
 
-#toggle a {
+ul[id*="toggle"] a {
     display: inline-block;
     color: #FF6663;
     text-decoration: none;
     margin-left: 5px;
 }
 
-#toggle span  {
+ul[id*="toggle"] span  {
     color: #fff;
     margin-left: 10px;
 }
