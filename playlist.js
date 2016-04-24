@@ -9,18 +9,17 @@ function Playlist() {
 
 Playlist.prototype = {
 
-	add: function(song) {
-		this.songs.push(song); 
-		// push method adds song object and movie object to songs array	
+	add: function(song, artistInfo) {
+		this.songs.push(song);
+		// push method adds song to songs array
+		this.artist.push(artistInfo); 
+		// push method adds artist info to artist array
 		playlist.countTracks();
 	},
 
 	play: function () {
 		var currentSong = this.songs[this.nowPlayingIndex]; 
 		// song object at index whatever is added to currentSong variable
-
-		currentSong.current(); 
-		// highlights the current song playing
 
 		currentSong.audioPlay();
 		// add src and audio path to <audio> tag and play audio
@@ -31,9 +30,6 @@ Playlist.prototype = {
 
 	stop: function () {
 		var currentSong = this.songs[this.nowPlayingIndex]; 
-	
-		currentSong.removeCurrent(); 
-		// removes highlight
 
 		currentSong.audioStop();
 		// removes src from audio <audio> tag and stop audio
@@ -71,17 +67,14 @@ Playlist.prototype = {
 	},
 
 	countTracks: function () {
-		// count number of items 'objects' in songs array and give each a number
+		// count number of items 'objects' in songs array and gives each a number
+		
 		var count = this.songs.length; 
 		// checks the length of each time an item is added to songs array
 		this.tracks.push(count);
 	},
 
-	addArtist: function(artistInfo) {
-		this.artist.push(artistInfo);
-	},
-
-	renderInElement: function(playlistElement) {
+	renderInElement: function(playlistElement) { // the call for this function is in app.js
 		playlistElement.innerHTML = "";
 
 		// console.log(this.tracks);
@@ -97,7 +90,7 @@ Playlist.prototype = {
 			index = this.tracks[i] - 1;	
 
 			playlistElement.innerHTML += this.songs[i].toHTML(trackNumber, index); 
-			// trackNumber, index, id is passed as an argument to toHTML()
+			// trackNumber and index is passed as an argument to toHTML()
 			} // updates HTML with track #, title, artist, duration and album
 		}
 
