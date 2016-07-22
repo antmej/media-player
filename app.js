@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 
 // TRACK INFO
 var playlist = new Playlist();
@@ -125,7 +125,7 @@ function runToggle(index) {
 	i = parseInt(index);
 	infoButton = document.getElementsByClassName('info');
 	toggle = document.getElementById('toggle' + i);
-	console.log(toggle);
+	// console.log(toggle);
 	downArrow = 'info fa fa-caret-down square';
 	upArrow = 'info fa fa-caret-up square';
 
