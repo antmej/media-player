@@ -58,7 +58,7 @@ Playlist.prototype = {
 		// move backwards to the previous song in songs array
 		
 		if (this.nowPlayingIndex === -1) {
-			this.nowPlayingIndex = this.songs.length -1;
+			this.nowPlayingIndex = this.songs.length - 1;
 		}
 		// if the first song is selected and playing and the user clicks the back button, start playing from end of playlist
 

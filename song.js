@@ -13,7 +13,14 @@ Song.prototype = {
 
 	toHTML: function(trackNumber, index) {
 
-		var i, num, artist, duration, album, track, moreInfo, addToPlaylist;
+		var i, 
+		num, 
+		artist, 
+		duration, 
+		album, 
+		track, 
+		moreInfo, 
+		addToPlaylist;
 
 		i = parseInt(index);	
 		num = "<li>" + "<span class='tracknumber'>" + trackNumber + "</span>" + this.title + "</li>";
@@ -23,9 +30,9 @@ Song.prototype = {
 
 		track = "<ul class=\'track\'";
 		track += "data-index=\'" + index + "\'";
-		track += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
-		track += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
-		track += "<li><i class=\'fa fa-play circle\' data-index=\'" + index + "\' onclick=\'Song.prototype.audioPlayIcon(this.getAttribute(\"data-index\"));\'></i></li>";
+		track += "onclick=\'selectTrack(this.getAttribute(\"data-index\"));\'";
+		track += "ondblclick=\'doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
+		track += "<li><i class=\'fa fa-play circle\' data-index=\'" + index + "\' onclick=\'playIcon(this.getAttribute(\"data-index\"));\'></i></li>";
 		track += num + artist + duration + album;
 		track += "<li><i class=\'info fa fa-caret-down square\' data-index=\'" + index + "\' onclick=\'runToggle(this.getAttribute(\"data-index\"));\'></i></li>";
 		track += "</ul>"
@@ -34,11 +41,11 @@ Song.prototype = {
 		if (this.isPlaying === true) { 
 			track = "<ul class=\'track select\'"; 
 			track += "data-index=\'" + index + "\'";
-			track += "onclick=\'Song.prototype.selectTrack(this.getAttribute(\"data-index\"));\'";
-			track += "ondblclick=\'Song.prototype.doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
+			track += "onclick=\'selectTrack(this.getAttribute(\"data-index\"));\'";
+			track += "ondblclick=\'doubleClickTrack(this.getAttribute(\"data-index\"));\'>";
 			track += "<li><i class=\'fa fa-volume-up circle\'";
 			track += "data-index=\'" + index + "\'";
-			track += "onclick=\'Song.prototype.audioStopIcon(this.getAttribute(\"data-index\"));\'></i></li>";
+			track += "onclick=\'stopIcon();\'></i></li>";
 			track += num + artist + duration + album;
 			track += "<li><i class=\'info fa fa-caret-down square\' data-index=\'" + index + "\' onclick=\'runToggle(this.getAttribute(\"data-index\"));\'></i></li>";
 			track += "</ul>"
@@ -84,65 +91,6 @@ Song.prototype = {
 		var audio = document.getElementById('audio');
     	audio.pause(); // .pause() method on audio element is built in method
     	audio.src = ''; // removing the source is a trick to stop the audio instead of just pausing it
-	},
-
-	audioPlayIcon: function(index) {
-		playlist.stop(); // stops audio
-
-		var index = parseInt(index); // parseInt to convert 'index' from String to Number
-		playlist.nowPlayingIndex = index;
-
-		playlist.play(); 
-		playlist.renderInElement(playlistElement); // updates HTML to show changes
-
-		if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
-			return playButton.innerHTML = '<i class="fa fa-stop"></i>';
-		}
-	},
-
-	audioStopIcon: function () {
-		playlist.stop();
-		playlist.renderInElement(playlistElement);
-
-		if (playButton.innerHTML === '<i class="fa fa-stop"></i>') {
-			return playButton.innerHTML = '<i class="fa fa-play"></i>';
-		}
-	},
-
-	selectTrack: function(index) {
-		var tracks = [], i, x, length;
-
-		tracks = document.getElementsByClassName('track');
-		i = parseInt(index); // parseInt to convert 'index' from String to Number
-		length = tracks.length;
-
-		for (x = 0; x < length; x += 1) { 
-			if (tracks[x].className === 'track select') { 
-				tracks[x].className = 'track'; // change class name(s) to just 'track'
-			}
-		}
-		// loop through all tracks in 'tracks array'
-		// if any track has 'track select' as class name(s) change class name to just 'track'
-
-
-		if (tracks[i].className === 'track') { 
-			tracks[i].className += ' select';
-		}
-
-		// if any track in 'tracks array' has JUST 'track' as a class name add 'select' to it
-	},
-
-	doubleClickTrack: function(index) {
-		playlist.stop(); // removes highlight and stops audios
-
-		var index = parseInt(index); // parseInt to convert 'index' from String to Number
-		playlist.nowPlayingIndex = index;
-		playlist.play(); 
-		playlist.renderInElement(playlistElement); // updates HTML to show changes
-
-		if (playButton.innerHTML === '<i class="fa fa-play"></i>') {
-			return playButton.innerHTML = '<i class="fa fa-stop"></i>';
-		}
 	}
 
 };
