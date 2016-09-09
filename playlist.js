@@ -10,14 +10,17 @@ function Playlist() {
 Playlist.prototype = {
 
 	add: function(song, artistInfo) {
+
 		this.songs.push(song);
 		// push method adds song to songs array
 		this.artist.push(artistInfo); 
 		// push method adds artist info to artist array
 		playlist.countTracks();
+
 	},
 
 	play: function () {
+
 		var currentSong = this.songs[this.nowPlayingIndex]; 
 		// song object at index whatever is added to currentSong variable
 
@@ -26,16 +29,20 @@ Playlist.prototype = {
 
 		currentSong.nowPlaying();
 		// updates nowplaying info
+
 	},
 
 	stop: function () {
+
 		var currentSong = this.songs[this.nowPlayingIndex]; 
 
 		currentSong.audioStop();
-		// removes src from audio <audio> tag and stop audio
+		// removes src from audio <audio> tag and stops audio
+
 	},
 
 	next: function () {
+
 		playlist.stop(); 
 		// stop the current song using existing stop method on playlist object
 	
@@ -48,11 +55,12 @@ Playlist.prototype = {
 
 		playlist.play(); 
 		// play the next song in the songs array using existing play method on playlist object
+
 	},
 
 	back: function () {
+
 		playlist.stop(); 
-		// stop the current song using existing stop method on playlist object
 		
 		this.nowPlayingIndex -= 1; 
 		// move backwards to the previous song in songs array
@@ -64,6 +72,7 @@ Playlist.prototype = {
 
 		playlist.play(); 
 		// play the next song in the songs array using existing play method on playlist object
+
 	},
 
 	countTracks: function () {
@@ -72,12 +81,13 @@ Playlist.prototype = {
 		var count = this.songs.length; 
 		// checks the length of each time an item is added to songs array
 		this.tracks.push(count);
+
 	},
 
-	renderInElement: function(playlistElement) { // the call for this function is in app.js
-		playlistElement.innerHTML = "";
+	renderInElement: function(playlistElement) { 
+		// the call for this function is in app.js
 
-		// console.log(this.tracks);
+		playlistElement.innerHTML = "";
 
 		var numOfSongs = playlist.songs.length;
 		

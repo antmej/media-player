@@ -15,7 +15,7 @@ function buildTrack(index, trackNumber, title, artist, duration, album, i) {
 
 		return track + songInfo(i, index);
 
-}
+};
 
 
 function isPlaying(index, trackNumber, title, artist, duration, album, i) {
@@ -37,7 +37,7 @@ function isPlaying(index, trackNumber, title, artist, duration, album, i) {
 		// <ul class='track select'>
 		// <i class='fa fa-volume-up circle'>
 		// stopIcon()
-}
+};
 
 
 function songInfo(i, index) {
@@ -54,7 +54,7 @@ function songInfo(i, index) {
 
 	return info;
 
-}
+};
 
 
 

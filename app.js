@@ -5,7 +5,7 @@ var playlist = new Playlist();
 
 
 
-// SONG
+// SONGS
 var miracle = new Song('The Miracle (Of Joey Ramone)', 'U2', '4:15', 'Songs of Innocence', 'audio/the-miracle-(of joey-ramone).m4a');
 var everyBreakingWave = new Song('Every Breaking Wave', 'U2', '4:12', 'Songs of Innocence', 'audio/every-breaking-wave.m4a');
 var california = new Song('California (There Is No End to Love)', 'U2', '3:59', 'Songs of Innocence', 'audio/california-(there-is-no-end-to-love).m4a');
